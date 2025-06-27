@@ -22,6 +22,10 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .container {
@@ -89,6 +93,10 @@ nav {
     display: inline-block;
     border: none;
     cursor: pointer;
+    touch-action: manipulation;
+    user-select: none;
+    min-height: 44px;
+    min-width: 44px;
 }
 
 .btn-primary:hover {
@@ -504,6 +512,9 @@ nav {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
+    touch-action: manipulation;
+    user-select: none;
+    min-height: 48px;
 }
 
 .btn-select-plan:hover {
@@ -761,27 +772,97 @@ footer {
     opacity: 0.8;
 }
 
-/* Responsive */
+/* Responsive Design */
+
+/* Tablet Portrait - 768px and down */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Header */
+    header {
+        padding: 15px 0;
+    }
+
     .nav-links {
         display: none;
     }
 
+    .logo {
+        font-size: 24px;
+    }
+
+    .logo svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 120px 0 60px;
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
+        gap: 40px;
         text-align: center;
     }
 
     .hero-text h1 {
         font-size: 36px;
+        line-height: 1.1;
+        margin-bottom: 15px;
+    }
+
+    .hero-text p {
+        font-size: 18px;
+        margin-bottom: 25px;
     }
 
     .hero-cta {
-        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .trust-badges {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .phone-mockup {
+        max-width: 280px;
+    }
+
+    /* Features */
+    .features {
+        padding: 60px 0;
+    }
+
+    .section-header h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .section-header p {
+        font-size: 16px;
     }
 
     .features-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .feature-card {
+        padding: 30px 20px;
+    }
+
+    /* Why Choose Section */
+    .why-choose {
+        padding: 60px 0;
     }
 
     .why-choose-content {
@@ -789,8 +870,17 @@ footer {
         gap: 40px;
     }
 
+    .benefits-list {
+        gap: 20px;
+    }
+
+    .benefit-item {
+        padding: 20px;
+    }
+
     .dashboard-card {
         max-width: 100%;
+        margin: 0 auto;
     }
 
     .dashboard-stats {
@@ -806,16 +896,336 @@ footer {
         font-size: 24px;
     }
 
+    /* Pricing */
+    .pricing {
+        padding: 60px 0;
+    }
+
     .pricing-cards {
         grid-template-columns: 1fr;
+        gap: 30px;
     }
 
     .pricing-card.featured {
         transform: none;
+        order: -1;
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 95%;
+        max-width: 400px;
+        margin: 20px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 40px 0 20px;
     }
 
     .footer-content {
         grid-template-columns: 1fr;
+        gap: 30px;
         text-align: center;
+    }
+}
+
+/* Mobile Landscape - 640px and down */
+@media (max-width: 640px) {
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .btn-primary, .btn-select-plan {
+        padding: 14px 20px;
+        font-size: 16px;
+    }
+
+    .feature-card {
+        padding: 25px 15px;
+    }
+
+    .feature-card h3 {
+        font-size: 20px;
+    }
+
+    .pricing-card {
+        padding: 25px 20px;
+    }
+
+    .plan-price {
+        font-size: 36px;
+    }
+}
+
+/* Mobile Portrait - 480px and down */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .hero {
+        padding: 100px 0 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .hero-text p {
+        font-size: 15px;
+    }
+
+    .hero-cta {
+        gap: 12px;
+    }
+
+    .btn-primary {
+        padding: 12px 18px;
+        font-size: 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .btn-secondary {
+        font-size: 15px;
+    }
+
+    .trust-badges {
+        gap: 12px;
+    }
+
+    .trust-badge {
+        font-size: 14px;
+    }
+
+    .trust-badge svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .phone-mockup {
+        max-width: 240px;
+    }
+
+    .features, .why-choose, .pricing {
+        padding: 40px 0;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+        font-size: 24px;
+    }
+
+    .section-header p {
+        font-size: 15px;
+    }
+
+    .features-grid {
+        gap: 25px;
+    }
+
+    .feature-card {
+        padding: 20px 15px;
+    }
+
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+
+    .feature-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .feature-card h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .feature-card p {
+        font-size: 14px;
+    }
+
+    .benefits-list {
+        gap: 15px;
+    }
+
+    .benefit-item {
+        padding: 15px;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .benefit-icon {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+    }
+
+    .benefit-content h3 {
+        font-size: 18px;
+    }
+
+    .benefit-content p {
+        font-size: 14px;
+    }
+
+    .dashboard-card {
+        padding: 20px;
+    }
+
+    .dashboard-header h3 {
+        font-size: 18px;
+    }
+
+    .stat-number {
+        font-size: 20px;
+    }
+
+    .stat-label {
+        font-size: 12px;
+    }
+
+    .pricing-cards {
+        gap: 20px;
+    }
+
+    .pricing-card {
+        padding: 20px 15px;
+    }
+
+    .plan-name {
+        font-size: 20px;
+    }
+
+    .plan-price {
+        font-size: 32px;
+    }
+
+    .plan-price span {
+        font-size: 16px;
+    }
+
+    .plan-features {
+        margin: 20px 0;
+    }
+
+    .plan-features li {
+        font-size: 14px;
+        padding: 8px 0;
+    }
+
+    .btn-select-plan {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .modal-content {
+        width: 98%;
+        margin: 10px;
+        padding: 20px;
+    }
+
+    .modal-header h3 {
+        font-size: 20px;
+    }
+
+    .form-group input {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .footer-brand h3 {
+        font-size: 20px;
+    }
+
+    .footer-links h4 {
+        font-size: 16px;
+    }
+}
+
+/* Extra Small Devices - 360px and down */
+@media (max-width: 360px) {
+    .hero-text h1 {
+        font-size: 24px;
+    }
+
+    .hero-text p {
+        font-size: 14px;
+    }
+
+    .section-header h2 {
+        font-size: 22px;
+    }
+
+    .phone-mockup {
+        max-width: 200px;
+    }
+
+    .feature-card, .benefit-item, .pricing-card {
+        padding: 15px 10px;
+    }
+
+    .plan-price {
+        font-size: 28px;
+    }
+
+    .dashboard-card {
+        padding: 15px;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .phone-mockup {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Landscape Orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        padding: 80px 0 40px;
+    }
+
+    .hero-content {
+        gap: 30px;
+    }
+
+    .hero-text h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .hero-text p {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    .hero-cta {
+        margin-bottom: 20px;
+    }
+
+    .trust-badges {
+        flex-direction: row;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .phone-mockup {
+        max-width: 200px;
     }
 } 
