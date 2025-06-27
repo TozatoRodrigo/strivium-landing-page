@@ -187,9 +187,13 @@ app.get('/health', (req, res) => {
     res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
-app.listen(PORT, () => {
-    console.log(`🚀 Servidor rodando na porta ${PORT}`);
-    console.log(`📊 Dashboard: http://localhost:${PORT}/health`);
-});
+// Para desenvolvimento local
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`🚀 Servidor rodando na porta ${PORT}`);
+        console.log(`📊 Dashboard: http://localhost:${PORT}/health`);
+    });
+}
 
+// Para Vercel (serverless)
 module.exports = app; 

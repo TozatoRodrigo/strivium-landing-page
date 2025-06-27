@@ -80,7 +80,9 @@ const StriviumConfig = {
     
     // URLs da API
     api: {
-        baseUrl: 'http://localhost:3001', // Backend local
+        baseUrl: process.env.NODE_ENV === 'production' 
+            ? '' // Usar URL relativa no Vercel
+            : 'http://localhost:3001', // Backend local para desenvolvimento
         endpoints: {
             createSubscription: '/api/create-subscription',
             cancelSubscription: '/api/cancel-subscription',
