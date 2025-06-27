@@ -73,7 +73,7 @@ strivium-landing-page/
 
 ### **1. Clonar o Repositório**
 ```bash
-git clone https://github.com/SEU_USUARIO/strivium-landing-page.git
+git clone https://github.com/TozatoRodrigo/strivium-landing-page.git
 cd strivium-landing-page
 ```
 
@@ -160,7 +160,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 ## 👨‍💻 **Autor**
 
 **Rodrigo Dias Tozato**
-- GitHub: [@rodrigodiastozato](https://github.com/rodrigodiastozato)
+- GitHub: [@TozatoRodrigo](https://github.com/TozatoRodrigo)
 - LinkedIn: [Rodrigo Dias Tozato](https://linkedin.com/in/rodrigodiastozato)
 
 ## 🙏 **Agradecimentos**
@@ -174,7 +174,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 Se você encontrar algum problema ou tiver dúvidas:
 
 1. Consulte o [Guia de Integração](STRIPE-INTEGRATION-GUIDE.md)
-2. Abra uma [Issue](https://github.com/SEU_USUARIO/strivium-landing-page/issues)
+2. Abra uma [Issue](https://github.com/TozatoRodrigo/strivium-landing-page/issues)
 3. Entre em contato via email
 
 ---
