@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strivium - Comunicação Médica Segura e Eficiente</title>
+    <meta name="description" content="Centralize a comunicação durante visitas médicas, otimize o tempo da equipe e melhore o cuidado ao paciente com o Strivium.">
+    <meta name="keywords" content="comunicação médica, prontuário digital, equipe médica, LGPD, segurança médica">
+    
+    <!-- Stripe JS -->
+    <script src="https://js.stripe.com/v3/"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAgNDAiIGZpbGw9Im5vbmUiPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIwIiBmaWxsPSJ1cmwoI2dyYWRpZW50KSIvPjxwYXRoIGQ9Ik0yMCAxMCBMMjUgMTUgTDIwIDIwIEwxNSAxNSBaIiBmaWxsPSJ3aGl0ZSIvPjxwYXRoIGQ9Ik0yMCAyMCBMMjUgMjUgTDIwIDMwIEwxNSAyNSBaIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC43Ii8+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudCIgeDE9IjAiIHkxPSIwIiB4Mj0iNDAiIHkyPSI0MCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzVCOEZGRiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzRBN0ZGRiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjwvc3ZnPg==">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav class="container">
+            <div class="logo">
+                <svg viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="20" fill="url(#gradient)"/>
+                    <path d="M20 10 L25 15 L20 20 L15 15 Z" fill="white"/>
+                    <path d="M20 20 L25 25 L20 30 L15 25 Z" fill="white" opacity="0.7"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#5B8FFF"/>
+                            <stop offset="100%" stop-color="#4A7FFF"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                Strivium
+            </div>
+            <div class="nav-links">
+                <a href="#features">Recursos</a>
+                <a href="#pricing">Preços</a>
+                <a href="#pricing" class="btn-primary">Começar Agora</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Comunicação médica <span class="highlight">segura e eficiente</span> para sua equipe</h1>
+                    <p>Centralize a comunicação durante visitas médicas, otimize o tempo da equipe e melhore o cuidado ao paciente com o Strivium.</p>
+                    <div class="hero-cta">
+                        <a href="#pricing" class="btn-primary">Comece Grátis por 7 Dias</a>
+                        <a href="#demo" class="btn-secondary">
+                            Ver demonstração
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0C4.5 0 0 4.5 0 10s4.5 10 10 10 10-4.5 10-10S15.5 0 10 0zm-2 14.5v-9l6 4.5-6 4.5z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                            <span>LGPD Compliant</span>
+                        </div>
+                        <div class="trust-badge">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                            <span>Dados Criptografados</span>
+                        </div>
+                        <div class="trust-badge">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <span>+500 Médicos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <svg class="phone-mockup" viewBox="0 0 400 800" fill="none">
+                        <rect x="50" y="50" width="300" height="700" rx="30" fill="#1A1A1A"/>
+                        <rect x="60" y="100" width="280" height="600" rx="20" fill="#FFFFFF"/>
+                        
+                        <!-- App Header -->
+                        <rect x="60" y="100" width="280" height="60" fill="#5B8FFF"/>
+                        <text x="200" y="135" text-anchor="middle" fill="white" font-size="20" font-weight="600">Consultas</text>
+                        
+                        <!-- Patient Cards -->
+                        <rect x="80" y="180" width="240" height="80" rx="12" fill="#F8F9FA"/>
+                        <circle cx="110" cy="220" r="20" fill="#E8F0FF"/>
+                        <rect x="140" y="200" width="120" height="8" rx="4" fill="#E0E0E0"/>
+                        <rect x="140" y="215" width="80" height="6" rx="3" fill="#E0E0E0"/>
+                        <rect x="140" y="230" width="100" height="6" rx="3" fill="#E0E0E0"/>
+                        
+                        <rect x="80" y="280" width="240" height="80" rx="12" fill="#F8F9FA"/>
+                        <circle cx="110" cy="320" r="20" fill="#E8F0FF"/>
+                        <rect x="140" y="300" width="120" height="8" rx="4" fill="#E0E0E0"/>
+                        <rect x="140" y="315" width="80" height="6" rx="3" fill="#E0E0E0"/>
+                        <rect x="140" y="330" width="100" height="6" rx="3" fill="#E0E0E0"/>
+                        
+                        <!-- Bottom Navigation -->
+                        <rect x="60" y="640" width="280" height="60" fill="#F8F9FA"/>
+                        <circle cx="120" cy="670" r="15" fill="#5B8FFF"/>
+                        <circle cx="200" cy="670" r="15" fill="#E0E0E0"/>
+                        <circle cx="280" cy="670" r="15" fill="#E0E0E0"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tudo que sua equipe médica precisa</h2>
+                <p>Ferramentas pensadas para otimizar a comunicação e melhorar o cuidado ao paciente</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3>Comunicação Centralizada</h3>
+                    <p>Toda a equipe médica conectada em um único lugar, facilitando o compartilhamento de informações.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                        </svg>
+                    </div>
+                    <h3>Segurança Total</h3>
+                    <p>Dados criptografados e em conformidade com a LGPD, garantindo privacidade total das informações.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                        </svg>
+                    </div>
+                    <h3>Otimização de Tempo</h3>
+                    <p>Reduza o tempo gasto com comunicação e foque no que importa: o cuidado ao paciente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Escolha o plano ideal para sua equipe</h2>
+                <p>Comece gratuitamente e escale conforme sua equipe cresce</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3 class="plan-name">Básico</h3>
+                    <div class="plan-price">R$ 97<span>/mês</span></div>
+                    <p class="plan-description">Ideal para pequenas equipes médicas</p>
+                    <ul class="plan-features">
+                        <li>
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                            Até 5 usuários
+                        </li>
+                        <li>
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                            Comunicação em tempo real
+                        </li>
+                        <li>
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                            Prontuário digital básico
+                        </li>
+                        <li>
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                            Suporte por email
+                        </li>
+                    </ul>
+                    <button class="btn-select-plan" data-plan="basico" data-price="97">Começar Agora</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <span class="featured-badge">Mais Popular</span>
+                    <h3 class="plan-name">Profissional</h3>
+                    <div class="plan-price">R$ 197<span>/mês</span></div>
+                    <p class="plan-description">Para equipes médicas em crescimento</p>
+                    <ul class="plan-features">
+                        <li>
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                            Até 20 usuários
+                        </li>
+                        <li>
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                            Todas as funcionalidades básicas
+                        </li>
+                        <li>
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                            Integração com sistemas
+                        </li>
+                        <li>
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                            Relatórios avançados
+                        </li>
+                        <li>
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                            Suporte prioritário 24/7
+                        </li>
+                    </ul>
+                    <button class="btn-select-plan" data-plan="profissional" data-price="197">Começar Agora</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="plan-name">Enterprise</h3>
+                    <div class="plan-price">R$ 497<span>/mês</span></div>
+                    <p class="plan-description">Para grandes instituições médicas</p>
+                    <ul class="plan-features">
+                        <li>
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                            Usuários ilimitados
+                        </li>
+                        <li>
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                            Todas as funcionalidades Pro
+                        </li>
+                        <li>
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                            API personalizada
+                        </li>
+                        <li>
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                            Treinamento dedicado
+                        </li>
+                        <li>
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                            Gerente de sucesso dedicado
+                        </li>
+                    </ul>
+                    <button class="btn-select-plan" data-plan="enterprise" data-price="497">Começar Agora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Doctors Choose Section -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="section-header">
+                <h2>Por que médicos escolhem o Strivium</h2>
+            </div>
+            <div class="why-choose-content">
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Redução de 70% no tempo de comunicação</h3>
+                            <p>Economize horas preciosas com nossa plataforma otimizada para equipes médicas.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>100% de conformidade com LGPD</h3>
+                            <p>Segurança e privacidade garantidas para todos os dados de pacientes e equipe.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Melhoria comprovada no atendimento</h3>
+                            <p>Equipes relatam diagnósticos mais precisos e rápidos com informações centralizadas.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Acesso móvel completo</h3>
+                            <p>Use em qualquer dispositivo, a qualquer momento, durante suas visitas médicas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-preview">
+                    <div class="dashboard-card">
+                        <div class="dashboard-header">
+                            <h3>Dashboard de Visitas</h3>
+                        </div>
+                        <div class="dashboard-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">127</div>
+                                <div class="stat-label">Visitas Hoje</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">Satisfação</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">45min</div>
+                                <div class="stat-label">Tempo Médio</div>
+                            </div>
+                        </div>
+                        <div class="dashboard-chart">
+                            <svg viewBox="0 0 300 100" class="chart-svg">
+                                <polyline
+                                    fill="none"
+                                    stroke="#5B8FFF"
+                                    stroke-width="3"
+                                    points="20,80 60,60 100,40 140,50 180,30 220,20 260,10"
+                                />
+                                <circle cx="20" cy="80" r="4" fill="#5B8FFF"/>
+                                <circle cx="60" cy="60" r="4" fill="#5B8FFF"/>
+                                <circle cx="100" cy="40" r="4" fill="#5B8FFF"/>
+                                <circle cx="140" cy="50" r="4" fill="#5B8FFF"/>
+                                <circle cx="180" cy="30" r="4" fill="#5B8FFF"/>
+                                <circle cx="220" cy="20" r="4" fill="#5B8FFF"/>
+                                <circle cx="260" cy="10" r="4" fill="#5B8FFF"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Pronto para transformar a comunicação da sua equipe médica?</h2>
+                <p>Comece seu teste gratuito de 7 dias hoje mesmo. Sem compromisso, sem cartão de crédito necessário.</p>
+                <div class="cta-buttons">
+                    <a href="#pricing" class="btn-primary btn-large">Começar Teste Grátis</a>
+                    <a href="#demo" class="btn-secondary">Agendar Demonstração</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            
+            <div id="checkout-form">
+                <div class="modal-header">
+                    <h3>Finalizar Assinatura</h3>
+                    <p>Preencha os dados para ativar sua assinatura</p>
+                </div>
+
+                <form id="payment-form">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Instituição/Clínica</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+
+                    <div class="payment-summary">
+                        <h4>Resumo do Pedido</h4>
+                        <div class="summary-line">
+                            <span>Plano <span id="selected-plan-name"></span></span>
+                            <span>R$ <span id="selected-plan-price"></span>/mês</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Período de teste</span>
+                            <span>7 dias grátis</span>
+                        </div>
+                        <div class="summary-line total">
+                            <span>Total hoje</span>
+                            <span>R$ 0,00</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="card-element">Cartão de Crédito</label>
+                        <div id="card-element"></div>
+                        <div id="card-errors" role="alert"></div>
+                    </div>
+
+                    <button type="submit" class="btn-submit-payment" id="submit-payment">
+                        <span class="button-text">Iniciar Teste Grátis</span>
+                        <span class="spinner"></span>
+                    </button>
+
+                    <p style="text-align: center; margin-top: 20px; color: var(--text-gray); font-size: 14px;">
+                        Após 7 dias, será cobrado R$ <span id="price-after-trial"></span>/mês. Cancele quando quiser.
+                    </p>
+                </form>
+            </div>
+
+            <div class="success-message" id="success-message">
+                <div class="success-icon">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                    </svg>
+                </div>
+                <h3>Parabéns! Assinatura ativada com sucesso!</h3>
+                <p>Você receberá um email com as instruções de acesso.</p>
+                <p style="margin-top: 20px;">Seu período de teste de 7 dias começou agora.</p>
+                <button class="btn-primary" onclick="closeModal()" style="margin-top: 30px;">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Strivium</h3>
+                    <p>Melhore a comunicação da sua equipe médica e ofereça um cuidado mais eficiente aos pacientes.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Produto</h4>
+                    <ul>
+                        <li><a href="#">Recursos</a></li>
+                        <li><a href="#">Preços</a></li>
+                        <li><a href="#">API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Segurança</a></li>
+                        <li><a href="#">LGPD</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Strivium. Todos os direitos reservados. | Termos de Uso | Política de Privacidade</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

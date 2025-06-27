@@ -1,0 +1,63 @@
+{
+  "name": "strivium-landing-page",
+  "version": "2.0.0",
+  "description": "Landing page moderna e responsiva para o Strivium - Versão Refatorada",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "live-server --port=3000 --open=/",
+    "build": "npm run minify-css && npm run minify-js",
+    "minify-css": "cleancss -o dist/styles.min.css css/styles.css",
+    "minify-js": "uglifyjs js/main.js -o dist/main.min.js",
+    "lint": "eslint js/main.js",
+    "format": "prettier --write \"**/*.{html,css,js}\"",
+    "test": "echo \"Testes não implementados ainda\" && exit 1",
+    "deploy-netlify": "netlify deploy --prod --dir=.",
+    "deploy-vercel": "vercel --prod",
+    "serve": "serve . -p 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strivium/landing-page.git"
+  },
+  "keywords": [
+    "landing-page",
+    "healthcare",
+    "medical",
+    "communication",
+    "stripe",
+    "responsive",
+    "modern",
+    "refactored"
+  ],
+  "author": "Strivium Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/strivium/landing-page/issues"
+  },
+  "homepage": "https://github.com/strivium/landing-page#readme",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "eslint": "^8.57.0",
+    "live-server": "^1.2.2",
+    "prettier": "^3.0.3",
+    "serve": "^14.2.1",
+    "uglify-js": "^3.17.4"
+  },
+  "dependencies": {
+    "stripe": "^14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "config": {
+    "port": 3000
+  }
+} 
