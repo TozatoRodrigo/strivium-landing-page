@@ -5,14 +5,16 @@
 O projeto foi configurado para funcionar corretamente no Vercel com:
 
 ### ✅ **Arquivos Adicionados:**
-- `vercel.json` - Configuração do Vercel
-- `api/index.js` - Entrada para serverless functions
+- `vercel.json` - Configuração do Vercel (corrigido: removido `builds`)
+- `api/index.js` - Serverless function completa
+- `api/package.json` - Dependências da API
 - Scripts de build atualizados
 
 ### ✅ **Configurações:**
 - **Frontend**: Arquivos estáticos servidos diretamente
 - **Backend**: Serverless functions para API Stripe
-- **Roteamento**: Configurado para `/api/*` e `/webhook/*`
+- **Roteamento**: Configurado com `rewrites` para `/api/*` e `/webhook/*`
+- **Erro Corrigido**: Removido conflito entre `builds` e `functions`
 
 ## 🔧 **Variáveis de Ambiente no Vercel**
 
@@ -24,6 +26,9 @@ Antes do deploy, configure as variáveis de ambiente:
 ```
 STRIPE_SECRET_KEY=sk_test_SUA_CHAVE_SECRETA_AQUI
 STRIPE_WEBHOOK_SECRET=whsec_SUA_WEBHOOK_SECRET_AQUI
+STRIPE_PRICE_BASICO=price_SEU_ID_BASICO_AQUI
+STRIPE_PRICE_PROFISSIONAL=price_SEU_ID_PROFISSIONAL_AQUI
+STRIPE_PRICE_ENTERPRISE=price_SEU_ID_ENTERPRISE_AQUI
 NODE_ENV=production
 ```
 
