@@ -5,16 +5,35 @@
 O projeto foi configurado para funcionar corretamente no Vercel com:
 
 ### ✅ **Arquivos Adicionados:**
-- `vercel.json` - Configuração do Vercel (corrigido: removido `builds`)
+- `vercel.json` - Configuração do Vercel (corrigido: sem diretório "public")
+- `.vercelignore` - Arquivos a serem ignorados no deploy
 - `api/index.js` - Serverless function completa
 - `api/package.json` - Dependências da API
-- Scripts de build atualizados
 
 ### ✅ **Configurações:**
-- **Frontend**: Arquivos estáticos servidos diretamente
+- **Frontend**: Arquivos estáticos na raiz (não em pasta "public")
 - **Backend**: Serverless functions para API Stripe
 - **Roteamento**: Configurado com `rewrites` para `/api/*` e `/webhook/*`
 - **Erro Corrigido**: Removido conflito entre `builds` e `functions`
+- **Output Directory**: Configurado para servir arquivos da raiz
+
+## 🚨 **Solução para Erro "No Output Directory named 'public' found"**
+
+Se você receber este erro, siga estes passos:
+
+### **Opção 1: Configurar no Dashboard Vercel**
+1. **Acesse:** Vercel Dashboard > Seu Projeto > Settings > General
+2. **Build & Development Settings:**
+   - **Output Directory:** deixe em branco ou coloque `.`
+   - **Install Command:** deixe em branco
+   - **Build Command:** deixe em branco
+3. **Salvar** e fazer novo deploy
+
+### **Opção 2: Via vercel.json (já configurado)**
+O arquivo `vercel.json` já está configurado corretamente:
+- Sem especificação de diretório "public"
+- Arquivos servidos diretamente da raiz
+- Serverless functions na pasta `/api`
 
 ## 🔧 **Variáveis de Ambiente no Vercel**
 
