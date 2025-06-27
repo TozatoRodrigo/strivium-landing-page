@@ -147,11 +147,13 @@ GET  /health                     # Status do servidor
 
 ## 🤝 **Contribuindo**
 
+Contribuições são muito bem-vindas! Consulte o [Guia de Contribuição](CONTRIBUTING.md) para detalhes.
+
 1. Faça um Fork do projeto
 2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+3. Commit suas mudanças (`git commit -m 'feat: add some amazing feature'`)
 4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
+5. Abra um Pull Request usando nosso [template](.github/pull_request_template.md)
 
 ## 📝 **Licença**
 
@@ -174,8 +176,9 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 Se você encontrar algum problema ou tiver dúvidas:
 
 1. Consulte o [Guia de Integração](STRIPE-INTEGRATION-GUIDE.md)
-2. Abra uma [Issue](https://github.com/TozatoRodrigo/strivium-landing-page/issues)
-3. Entre em contato via email
+2. Leia o [Guia de Contribuição](CONTRIBUTING.md)
+3. Abra uma [Issue](https://github.com/TozatoRodrigo/strivium-landing-page/issues) usando nossos templates
+4. Consulte o [Changelog](CHANGELOG.md) para ver mudanças recentes
 
 ---
 
