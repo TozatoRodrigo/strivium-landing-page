@@ -14,6 +14,28 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 - Analytics avançado
 - A/B Testing
 
+## [2.1.0] - 2025-07-09
+
+### ✨ Adicionado
+- **Responsividade Mobile Completa**: Design mobile-first com 5 breakpoints
+- **Touch Optimization**: Botões com 44px mínimo, gestos touch otimizados
+- **Test Mobile Page**: Página `test-mobile.html` para teste de responsividade
+- **High DPI Support**: Suporte a telas Retina e alta densidade
+- **Orientation Support**: Compatibilidade com portrait/landscape
+
+### 🔧 Melhorado
+- **CSS Responsivo**: Breakpoints para Mobile XS (360px), Mobile (480px), Mobile L (640px), Tablet (768px), Desktop (1024px+)
+- **Layout Adaptativo**: Hero section, features grid e pricing cards se adaptam automaticamente
+- **Performance Mobile**: Otimizações específicas para dispositivos móveis
+- **Viewport Configuration**: Meta viewport otimizada para mobile
+- **Anti-aliasing**: Suavização de fontes em todos os dispositivos
+
+### 📚 Documentação
+- **README.md**: Atualizado com seção completa de responsividade mobile
+- **Status do Projeto**: Adicionada seção com status atual e métricas
+- **Links Úteis**: Adicionados links diretos para repositório, demo e issues
+- **Guias de Deploy**: Informações sobre Vercel, GitHub Pages e Netlify
+
 ## [2.0.0] - 2025-01-27
 
 ### ✨ Adicionado
@@ -94,24 +116,41 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### **Arquivos Principais**
 - `index.html`: 507 linhas
-- `css/styles.css`: 638 linhas  
-- `js/main.js`: 410 linhas
+- `css/styles.css`: 1200+ linhas (com responsividade)
+- `js/main.js`: 521 linhas
 - `backend/server.js`: 200+ linhas
+- `api/index.js`: 129 linhas
 
 ### **Funcionalidades**
 - ✅ 3 planos de assinatura
 - ✅ Período de teste de 7 dias
 - ✅ Integração Stripe completa
-- ✅ Design responsivo
+- ✅ Design responsivo (5 breakpoints)
 - ✅ Backend Node.js
 - ✅ Deploy automático
+- ✅ Serverless functions
+- ✅ Mobile-first design
+
+### **Responsividade**
+- **Mobile XS**: 360px - 479px
+- **Mobile**: 480px - 639px  
+- **Mobile L**: 640px - 767px
+- **Tablet**: 768px - 1023px
+- **Desktop**: 1024px+
 
 ### **Tecnologias**
 - Frontend: HTML5, CSS3, JavaScript ES6+
 - Backend: Node.js, Express.js
 - Pagamentos: Stripe API
-- Deploy: Vercel
+- Deploy: Vercel, GitHub Pages
+- CI/CD: GitHub Actions
 - Versionamento: Git/GitHub
+
+### **Documentação**
+- **Arquivos de documentação**: 15+
+- **Guias específicos**: 5 (Stripe, Vercel, GitHub, Contribuição)
+- **Templates**: 3 (Bug report, Feature request, Pull request)
+- **Scripts de automação**: 2 (Setup, GitHub repo creation)
 
 ---
 
@@ -133,7 +172,10 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 - `🗑️ Removido` - Funcionalidades removidas
 - `🐛 Corrigido` - Correções de bugs
 - `🔒 Segurança` - Correções de vulnerabilidades
+- `📚 Documentação` - Melhorias na documentação
+- `⚡ Performance` - Otimizações de performance
+- `🎨 Design` - Mudanças visuais e de UI/UX
 
 ---
 
-**📅 Última atualização:** 27 de Janeiro de 2025 
+**📅 Última atualização:** 09 de Julho de 2025 

@@ -1,7 +1,7 @@
 {
   "name": "strivium-landing-page",
-  "version": "2.0.0",
-  "description": "Landing page moderna e responsiva para o Strivium - Versão Refatorada",
+  "version": "2.1.0",
+  "description": "Landing page moderna e responsiva para o Strivium com integração Stripe completa e design mobile-first",
   "main": "index.html",
   "scripts": {
     "build": "echo 'Static build completed'",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/strivium/landing-page.git"
+    "url": "git+https://github.com/TozatoRodrigo/strivium-landing-page.git"
   },
   "keywords": [
     "landing-page",
@@ -28,15 +28,17 @@
     "communication",
     "stripe",
     "responsive",
+    "mobile-first",
     "modern",
-    "refactored"
+    "nodejs",
+    "vercel"
   ],
-  "author": "Strivium Team",
+  "author": "Rodrigo Dias Tozato <rodrigo@example.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/strivium/landing-page/issues"
+    "url": "https://github.com/TozatoRodrigo/strivium-landing-page/issues"
   },
-  "homepage": "https://github.com/strivium/landing-page#readme",
+  "homepage": "https://github.com/TozatoRodrigo/strivium-landing-page#readme",
   "devDependencies": {
     "clean-css-cli": "^5.6.2",
     "eslint": "^8.57.0",
